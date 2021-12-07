@@ -6,35 +6,35 @@
 #include <cmath>
 
 int main() {
-  auto is_lt = [](auto & lhs, auto & rhs) {
+  auto is_lt = [](auto const & lhs, auto const & rhs) {
     auto tr = lhs < rhs;
     return tr;
   };
-  auto is_ge = [](auto & lhs, auto & rhs) {
+  auto is_ge = [](auto const & lhs, auto const & rhs) {
     auto tr = !(lhs < rhs);
     return tr;
   };
-  auto is_gt = [](auto & lhs, auto & rhs) {
+  auto is_gt = [](auto const & lhs, auto const & rhs) {
     auto tr = (rhs < lhs);
     return tr;
   };
-  auto is_le = [](auto & lhs, auto & rhs) {
+  auto is_le = [](auto const & lhs, auto const & rhs) {
     auto tr = !(rhs < lhs);
     return tr;
   };
-  auto is_eq = [](auto & lhs, auto & rhs) {
+  auto is_eq = [](auto const & lhs, auto const & rhs) {
     auto tr = (!(lhs < rhs) && !(rhs < lhs));
     return tr;
   };
-  auto is_nq = [](auto & lhs, auto & rhs) {
+  auto is_nq = [](auto const & lhs, auto const & rhs) {
     auto tr = !(!(lhs < rhs) && !(rhs < lhs));
     return tr;
   };
 
   auto play = [](auto & prs, auto & fn, auto const & cc) {
-    for (auto & va : prs) {
-      auto lhs = va.first;
-      auto rhs = va.second;
+    for (auto const & va : prs) {
+      auto const lhs = va.first;
+      auto const rhs = va.second;
       std::cout << lhs << cc << rhs << " = "
                 << std::boolalpha
                 <<  fn(lhs, rhs)
@@ -42,7 +42,7 @@ int main() {
     }
   };
 
-  std::vector<std::pair<int, int>> prs {
+  std::vector<std::pair<int const, int const>> prs {
     { 1, 2 }, { 2, 1 }, { 1, 1 }, { 2, 2 },
   };
 
