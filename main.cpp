@@ -30,6 +30,30 @@ int main() {
     auto tr = !(!(lhs < rhs) && !(rhs < lhs));
     return tr;
   };
+  auto bi_lt = [](auto const & lhs, auto const & rhs) {
+    auto tr = lhs < rhs;
+    return tr;
+  };
+  auto bi_ge = [](auto const & lhs, auto const & rhs) {
+    auto tr = lhs >= rhs;
+    return tr;
+  };
+  auto bi_gt = [](auto const & lhs, auto const & rhs) {
+    auto tr = lhs > rhs;
+    return tr;
+  };
+  auto bi_le = [](auto const & lhs, auto const & rhs) {
+    auto tr = lhs <= rhs;
+    return tr;
+  };
+  auto bi_eq = [](auto const & lhs, auto const & rhs) {
+    auto tr = lhs == rhs;
+    return tr;
+  };
+  auto bi_nq = [](auto const & lhs, auto const & rhs) {
+    auto tr = lhs != rhs;
+    return tr;
+  };
 
   auto play = [](auto & prs, auto & fn, auto const & cc) {
     for (auto const & va : prs) {
@@ -49,19 +73,37 @@ int main() {
   play(prs, is_lt, " <  ");
   std::cout << std::endl;
 
+  play(prs, bi_lt, " <  ");
+  std::cout << std::endl;
+
   play(prs, is_gt, " >  ");
+  std::cout << std::endl;
+
+  play(prs, bi_gt, " >  ");
   std::cout << std::endl;
 
   play(prs, is_le, " <= ");
   std::cout << std::endl;
 
+  play(prs, bi_le, " <= ");
+  std::cout << std::endl;
+
   play(prs, is_ge, " >= ");
+  std::cout << std::endl;
+
+  play(prs, bi_ge, " >= ");
   std::cout << std::endl;
 
   play(prs, is_eq, " == ");
   std::cout << std::endl;
 
+  play(prs, bi_eq, " == ");
+  std::cout << std::endl;
+
   play(prs, is_nq, " != ");
+  std::cout << std::endl;
+
+  play(prs, bi_nq, " != ");
   std::cout << std::endl;
 
   return 0;
